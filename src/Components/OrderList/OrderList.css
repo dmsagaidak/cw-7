@@ -1,0 +1,8 @@
+.item{
+    margin: 2px 0;
+    width: 34vw;
+    border: 1px solid #d9cfcf;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-around;
+}
