@@ -8,13 +8,13 @@
 
 .order-details{
   width: 35vw;
-  height: 60vh;
+  height: 350px;
   border: 2px solid #000;
 }
 
 .add-items{
   width: 60vw;
-  height: 60vh;
+  height: 350px;
   border: 2px solid #000;
 }
 
@@ -23,7 +23,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  align-self: center;
+  margin-top: 50px;
 }
 
 .list{
