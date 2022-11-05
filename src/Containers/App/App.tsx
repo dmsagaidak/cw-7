@@ -32,6 +32,15 @@ function App() {
     setCount(count)
   };
 
+  const remove = (id: string) =>{
+    setItems(prev => prev.map(item =>{
+      return item.id === id? {
+        ...item,
+        count: item.count = 0,
+      }: item;
+    }));
+  }
+
 
   const getPrice = items.reduce((acc, item) => acc + item.count * item.price, 0);
 
@@ -44,6 +53,7 @@ function App() {
         name={item.name}
         count={item.count}
         price={item.price}
+        remove={() =>remove(item.id)}
       >
       </OrderList>
     ))
@@ -61,8 +71,6 @@ function App() {
   ))
 
 
-
-
   return (
     <div className="App">
       <div className="order-details">
@@ -76,9 +84,6 @@ function App() {
       <div className="add-items">
         <p>Add items</p>
         {buttonsList}
-        {/*<div onClick={() =>addItem('h1')}>Hamburger</div>*/}
-        {/*<div onClick={() =>addItem('c1')}>Cheeseburger</div>*/}
-
       </div>
     </div>
   );
