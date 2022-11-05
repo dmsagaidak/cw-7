@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import OrderList from '../../Components/OrderList/OrderList'
+import OrderList from '../../Components/OrderList/OrderList';
+import Btns from "../../Components/Btns/Btns";
 import './App.css';
 
 interface OrderList {
@@ -19,23 +20,48 @@ function App() {
     {name: 'Cola', count: 0, price: 40, id: 'cl1'}
   ])
 
-  const [newItem, setNewItem] = useState(' ');
+  const [count, setCount] = useState(0);
 
-  const addItem = () =>{};
+  const addItem = (id: string) =>{
+    setItems(prev => prev.map(item =>{
+      return item.id === id? {
+        ...item,
+        count: item.count++,
+      }: item;
+    }));
+    setCount(count)
+  };
 
-  const getPrice = items.reduce((acc, item) => acc + item.count * item.price, 0)
 
+  const getPrice = items.reduce((acc, item) => acc + item.count * item.price, 0);
 
-  const orderList: React.ReactNode = items.map((item: OrderList) =>(
-    <OrderList
-     key={item.id}
-     name={item.name}
-     count={item.count}
-     price={item.price}
-    >
+  let orderList: React.ReactNode = null;
 
-    </OrderList>
+  if (getPrice !== 0){
+    orderList = items.map((item: OrderList) =>(
+      <OrderList
+        key={item.id}
+        name={item.name}
+        count={item.count}
+        price={item.price}
+      >
+      </OrderList>
+    ))
+  } else {
+    orderList = 'Your list is empty, please add some items'
+  }
+
+  const buttonsList: React.ReactNode = items.map((item) =>(
+    <Btns
+      key={item.id}
+      name={item.name}
+      price={item.price}
+      onItemAdd={() => addItem(item.id)}
+    />
   ))
+
+
+
 
   return (
     <div className="App">
@@ -49,6 +75,9 @@ function App() {
       </div>
       <div className="add-items">
         <p>Add items</p>
+        {buttonsList}
+        {/*<div onClick={() =>addItem('h1')}>Hamburger</div>*/}
+        {/*<div onClick={() =>addItem('c1')}>Cheeseburger</div>*/}
 
       </div>
     </div>

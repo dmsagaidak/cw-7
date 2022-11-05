@@ -8,8 +8,13 @@ interface OrderListProps extends React.PropsWithChildren {
 }
 
 const OrderList: React.FC<OrderListProps> = (props) => {
+  const classNames = ["item"];
+  if(props.count === 0){
+    classNames.push('hidden');
+  }
+
   return (
-    <div className="item">
+    <div className={classNames.join(' ')}>
       <div>{props.name}</div>
       <div>x {props.count}</div>
       <div>{props.price} KGS</div>
