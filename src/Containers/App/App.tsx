@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import OrderList from '../../Components/OrderList/OrderList';
 import Btns from "../../Components/Btns/Btns";
+import TotalPrice from "../../Components/TotalPrice/TotalPrice";
 import './App.css';
 
 interface OrderList {
@@ -78,8 +79,7 @@ function App() {
         <div className="list">
           {orderList}
         </div>
-
-        <p>Total price: <strong>{getPrice} KGS</strong></p>
+        <TotalPrice totalPrice={getPrice}/>
       </div>
       <div className="add-items">
         <p>Add items</p>
