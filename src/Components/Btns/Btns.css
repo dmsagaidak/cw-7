@@ -1,0 +1,17 @@
+.order-btn{
+    width: 250px;
+    height: 50px;
+    padding: 7px;
+    display: flex;
+    flex-direction: row;
+    margin: 7px;
+    font-size: 17px;
+    text-align: left;
+    background: #ffd9a1;
+    border: none;
+    border-radius: 30px;
+}
+
+.icon-cont{
+    margin: 0 15px;
+}

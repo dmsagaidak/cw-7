@@ -1,10 +1,25 @@
 .item{
     margin: 2px 0;
+    padding: 3px 0;
     width: 34vw;
+    height: 30px;
+    line-height: 30px;
     border: 1px solid #d9cfcf;
     border-radius: 5px;
     display: flex;
     justify-content: space-around;
+}
+
+.item-name{
+    width: 70px;
+    margin-right: 25px;
+}
+
+.remove-btn{
+    background: #e00c0c;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
 }
 
 .hidden{

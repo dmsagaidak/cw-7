@@ -26,7 +26,7 @@ function App() {
     setItems(prev => prev.map(item =>{
       return item.id === id? {
         ...item,
-        count: item.count++,
+        count: item.count +1,
       }: item;
     }));
     setCount(count)
@@ -79,11 +79,13 @@ function App() {
           {orderList}
         </div>
 
-        <p>Total price: {getPrice} KGS</p>
+        <p>Total price: <strong>{getPrice} KGS</strong></p>
       </div>
       <div className="add-items">
         <p>Add items</p>
-        {buttonsList}
+        <div className="buttons-cont">
+          {buttonsList}
+        </div>
       </div>
     </div>
   );

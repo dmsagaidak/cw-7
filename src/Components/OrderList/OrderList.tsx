@@ -16,10 +16,10 @@ const OrderList: React.FC<OrderListProps> = (props) => {
 
   return (
     <div className={classNames.join(' ')}>
-      <div>{props.name}</div>
+      <div className="item-name">{props.name}</div>
       <div>x {props.count}</div>
       <div>{props.price} KGS</div>
-      <button onClick={props.remove}>Remove</button>
+      <button onClick={props.remove} className="remove-btn">Remove</button>
       <div>{props.children}</div>
     </div>
   );
